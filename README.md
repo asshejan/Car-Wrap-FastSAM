@@ -1,15 +1,22 @@
 # 🚗 Virtual Car Wrap - FastSAM
 
-A powerful web application that uses FastSAM (Fast Segment Anything Model) to create virtual car wraps. Upload a car image and a sticker/decal, and see how it would look as a real car wrap!
+A professional Streamlit app for virtual car wrapping using AI-powered segmentation (FastSAM). Upload a car photo and a sticker/wrap design, and preview realistic wraps with advanced controls and effects.
 
 ## ✨ Features
 
-- **AI-Powered Car Segmentation**: Uses FastSAM to automatically detect and segment cars from any background
-- **Realistic Sticker Overlay**: Advanced alpha blending for realistic sticker placement
-- **Web Interface**: User-friendly Streamlit interface
-- **Download Results**: Save your virtual wraps as high-quality PNG images
-- **GPU Support**: Automatic CUDA detection for faster processing
-- **Multiple Format Support**: Works with JPG, JPEG, and PNG images
+- **AI Car Segmentation**: Uses FastSAM to segment the car from the background.
+- **Automatic Body Masking**: Windows, tyres, and non-painted areas are automatically excluded from the wrap overlay for realism.
+- **Sticker/Warp Overlay**: Upload a PNG wrap/sticker and see it mapped to the car's painted body only.
+- **Advanced Controls**:
+  - Horizontal & vertical wrap placement
+  - Scale and rotation
+  - Car color change
+  - Paint texture (metallic, pearl, matte)
+  - Professional backgrounds (studio, outdoor, garage)
+  - Lighting and shadow enhancement
+  - Photography filters (warm, cool, dramatic, vintage)
+- **Input Validation**: Warns if you upload a logo or invalid car image.
+- **Download Result**: Save your professional wrap preview as a PNG.
 
 ## 🛠️ Technology Stack
 
@@ -131,3 +138,25 @@ If you encounter any issues or have questions, please open an issue on GitHub.
 ---
 
 **Made with ❤️ using FastSAM and Streamlit**
+
+## How the Masking Works
+
+- The app uses FastSAM to segment the car.
+- A refined mask is computed to focus on the painted body, excluding windows, tyres, and background using color and morphological filtering.
+- The sticker/wrap image is automatically masked so it only appears on the car's painted panels—no wrap on glass or wheels!
+
+## Best Practices for Sticker Images
+
+- Use a transparent PNG for your wrap/sticker design.
+- The design should be shaped or sized to fit the car's side view for best results.
+- Avoid white backgrounds—use transparency where there is no wrap.
+
+## Example
+
+![screenshot](docs/example.png)
+
+## Changelog
+
+- **2024-07-05**: Improved realism—sticker overlay now automatically removes windows and tyres using the car body mask. Added vertical placement control.
+- **2024-07-04**: Advanced wrap warping, blending, and pro controls.
+- **2024-07-03**: Initial release.
